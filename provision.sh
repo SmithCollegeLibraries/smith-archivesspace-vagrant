@@ -7,4 +7,4 @@ unzip -q archivesspace-v2.1.2.zip
 sudo chmod o+w /etc/rc.local 
 echo "#!/bin/bash" > /etc/rc.local
 echo "cd /home/ubuntu/archivesspace/ && ./archivesspace.sh start" >> /etc/rc.local
-sudo /etc/init.d/rc.local start
+sudo /etc/init.d/rc.local restart
