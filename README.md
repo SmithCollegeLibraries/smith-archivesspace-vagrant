@@ -10,7 +10,7 @@ vagrant up
 This may take a couple minutes to do everything. Enough time to go make a fresh pot of tea...
 
 # Accessing ArchivesSpace
-Once online the system is accessible at these locations:
+Once online ArchivesSpace is accessible at these locations:
 - http://localhost:8089/ -- the backend
 - http://localhost:8080/ -- the staff interface
 - http://localhost:8081/ -- the public interface
@@ -39,5 +39,9 @@ OR completely delete the virtual machine to save space. Next time you run ```vag
 ```
 vagrant destroy
 ```
+
 # Logs
 ArchivesSpace logs are available at ```/home/ubuntu/archivesspace/logs```
+
+# TODO
+- Create method to import production SQL dump
