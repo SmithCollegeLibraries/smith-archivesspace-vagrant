@@ -1,6 +1,11 @@
 # ArchivesSpace local development environment
 Requires Vagrant https://www.vagrantup.com/
 
+Sets up the following software:
+- ArchivesSpace v2.1.2
+- MySQL and the Java-MySQL connector
+- Latest version of Java at time of provisioning
+
 # Setup
 Vagrant creates a virtual machine on demand and set's things up on the VM for you. To create the virtual machine and set up archivespsace on it, simply use the following command:
 ```
