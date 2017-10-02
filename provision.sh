@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Path (on the vagrant box) of the sql dump file to load
+sqlDumpFile="/vagrant/dump.sql"
+
 # Install needed Ubuntu software packages
 export DEBIAN_FRONTEND=noninteractive # don't prompt me for stuff REALLY
 apt-get update
@@ -23,6 +26,16 @@ echo 'AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user=as&pa
 # Run initial database tables setup
 archivesspace/scripts/setup-database.sh
 
+# Initialize the database either with the provided SQL dump or stock config
+if [ -f "$sqlDumpFile" ]
+then
+  echo "$sqlDumpFile found. Importing SQL dump."
+  # Import database dump
+  mysql -u as --password=as123 archivesspace < /vagrant/dump.sql
+else
+ echo "$sqlDumpFile not found. Using demo database instead"
+fi
+
 # Add AS to system startup scripts
 sudo chmod o+w /etc/rc.local 
 echo "#!/bin/bash" > /etc/rc.local
@@ -30,3 +43,6 @@ echo "cd /home/ubuntu/archivesspace/ && ./archivesspace.sh start" >> /etc/rc.loc
 
 # Reload system startup scripts to run AS for the first time
 sudo /etc/init.d/rc.local restart
+
+echo "ArchivesSpace launching in the background. In a minute or two it will be available at http://localhost:8080."
+echo "To watch logs run: vagrant ssh, then run: tail -f archivesspace/logs/archivesspace.out"

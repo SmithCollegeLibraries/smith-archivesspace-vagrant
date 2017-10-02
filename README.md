@@ -7,7 +7,13 @@ Sets up the following software:
 - Latest version of Java at time of provisioning
 
 # Setup
-Vagrant creates a virtual machine on demand and set's things up on the VM for you. To create the virtual machine and set up archivespsace on it, simply use the following command:
+Vagrant creates a virtual machine on demand and set's things up on the VM for you. Follow the simple instructions below to set it up and use it.
+
+## Databse contents
+Before you run the Vagrant installer you may want the SQL dump from the instance you are cloning. If you don't supply an SQL dump, the vagrant will use the demo setup instead. Either way it will use a full fledged MySQL database. Place the SQL dump file in this folder and call it ```dump.sql```. The name must match exactly! Make sure that it is unzipped first if it is gzipped. 
+
+## Run the setup
+To create the virtual machine and set up archivespsace on it, simply use the following command:
 ```
 cd smith-archivesspace-vagrant/
 vagrant up
@@ -15,7 +21,7 @@ vagrant up
 This may take a couple minutes to do everything. Enough time to go make a fresh pot of tea...
 
 # Accessing ArchivesSpace
-Once online ArchivesSpace is accessible at these locations:
+Once online, ArchivesSpace is accessible at these locations:
 - http://localhost:8089/ -- the backend
 - http://localhost:8080/ -- the staff interface
 - http://localhost:8081/ -- the public interface
