@@ -9,8 +9,8 @@ apt-get update
 apt-get -q -y install default-jre unzip mysql-server
 
 # Download AS
-wget -q https://github.com/archivesspace/archivesspace/releases/download/v2.5.2/archivesspace-v2.5.2.zip
-unzip -q archivesspace-v2.5.2.zip
+wget -q https://github.com/archivesspace/archivesspace/releases/download/v2.6.0/archivesspace-v2.6.0.zip
+unzip -q archivesspace-v2.6.0.zip
 
 # Install java mysql connector
 wget -q https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.44.tar.gz
